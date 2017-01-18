@@ -1,0 +1,13 @@
+CREATE TABLE item (
+  id BIGINT AUTO_INCREMENT NOT NULL,
+  user_id BIGINT NOT NULL,
+  comment VARCHAR(255),
+  PRIMARY KEY (id),
+  INDEX df_idx (user_id ASC),
+  CONSTRAINT item_to_user
+    FOREIGN KEY (user_id)
+    REFERENCES user (id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
